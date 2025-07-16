@@ -171,13 +171,13 @@
 
     /* preloader
      */
-    --color-preloader-bg           : #CFE6E8;
+    --color-preloader-bg           : rgba(0, 0, 0, 0.15);
     --color-loader                 : var(--color-text-dark);
     --color-loader-light           : var(--color-1-lighter);
 
     /* others
      */
-    --color-body                   : #CFE6E8;
+    --color-body                   : rgba(0, 0, 0, 0.15);
     --color-border                 : rgba(0, 0, 0, .08);
     --border-radius                : 3px;
 }
@@ -3246,11 +3246,11 @@ img.u-pull-left {
 .s-intro__bg {
     aspect-ratio        : 1/1;
     width               : 100%;
-    background-color    : var(--color-gray-4);
+    background-color    : var(--color-1-dark);
     background-image    : url(../images/intro-bg.jpg);
     background-repeat   : no-repeat;
     background-position : center;
-    background-size     : cover;
+    background-size     : auto;
     position            : relative;
 }
 
@@ -3264,9 +3264,9 @@ img.u-pull-left {
     bottom         : 0;
     width          : 100%;
     height         : 100%;
-    background     : linear-gradient(180deg, black 5%, rgba(0, 0, 0, 0) 100%);
+    background     : var(--color-1-dark);
     pointer-events : none;
-    opacity        : .12;
+    opacity        : 0.12;
 }
 
 /* ------------------------------------------------------------------- 
