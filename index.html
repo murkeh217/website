@@ -243,28 +243,28 @@ I’m constantly experimenting and sharing my work—both playable prototypes an
     
                         <ul class="skill-bars">
                             <li>
-                            <div class="progress percent95"></div>
+                            <div class="progress percent80"></div>
                             <strong>Unity3D</strong>
                             </li>
                             <li>
-                            <div class="progress percent85"></div>
+                            <div class="progress percent80"></div>
                             <strong>GitHub</strong>
                             </li>
                             <li>
-                            <div class="progress percent70"></div>
+                            <div class="progress percent60"></div>
                             <strong>JIRA</strong>
                             </li>
                             <li>
-                            <div class="progress percent75"></div>
+                            <div class="progress percent30"></div>
                             <strong>Blender</strong>
                             </li>
                             <li>
-                            <div class="progress percent85"></div>
+                            <div class="progress percent70"></div>
                             <strong>HTML/CSS</strong>
                             </li>
                             <li>
-                            <div class="progress percent90"></div>
-                            <strong>JavaScript</strong>
+                            <div class="progress percent50"></div>
+                            <strong>NodeJS</strong>
                             </li>
                         </ul>
     
@@ -318,40 +318,131 @@ I’m constantly experimenting and sharing my work—both playable prototypes an
                 		<iframe src="about:blank" name="gameplay" width="100%" height="650px" id="myIframe"></iframe>
 		                
                         <script>
+                        document.addEventListener("DOMContentLoaded", () => {
                             const iframe = document.getElementById("myIframe");
                             const descriptionBox = document.querySelector(".project_info");
 
                             const descriptions = {
                                 "fingers_crossed": `
                                     <ul>
-                                        <li>Multi-path branching narrative with choice-driven outcomes</li>
-                                        <li>Variable tracking for persistent player decisions</li>
-                                        <li>Custom GUI elements and stylized dialogue boxes</li>
-                                        <li>Minimalist sound design for atmospheric tension</li>
-                                        <li>Multiple endings based on player interactions and decisions</li>
+                                        <li>Implemented a branching dialogue system using ScriptableObjects for modular story paths</li>
+                                        <li>Persistent decision tracking via custom game state manager (saved across sessions)</li>
+                                        <li>Designed custom UI dialogue system with typewriter effect and speaker tagging</li>
+                                        <li>Utilized Unity’s AudioMixer for layered ambient tension and SFX triggers</li>
+                                        <li>Multiple endings triggered via flag-based condition trees and state evaluation</li>
                                     </ul>
                                 `,
                                 "hurdle-race": `
                                     <ul>
-                                        <li>Fast-paced obstacle runner</li>
-                                        <li>Precision timing mechanics</li>
-                                        <li>Pixel-perfect input detection</li>
-                                        <li>Animated sprite-based visuals</li>
+                                        <li>Developed a fast-paced 2D runner using Rigidbody2D physics and timed animation cycles</li>
+                                        <li>Precision-based jump timing with frame-perfect input windows for increased difficulty</li>
+                                        <li>Obstacle collision detection and hit feedback using custom collision boxes</li>
+                                        <li>Optimized for mobile with minimal draw calls and sprite batching</li>
                                     </ul>
                                 `,
                                 "jojo_arrow": `
                                     <ul>
-                                        <li>Rhythm-based arrow mechanics</li>
-                                        <li>Stylized animations inspired by anime</li>
-                                        <li>Responsive controls with visual feedback</li>
-                                        <li>High replay value with score tracking</li>
+                                        <li>Built a rhythm input system using beat mapping and fixed-time step updates</li>
+                                        <li>Integrated Unity Timeline and Animator for synchronized feedback animations</li>
+                                        <li>Dynamic difficulty scaling based on player performance tracking</li>
+                                        <li>Custom audio visualization to map beats to gameplay triggers</li>
+                                    </ul>
+                                `,
+
+                                "sisiphus": `
+                                    <ul>
+                                        <li>Physics-based challenge loop using Unity’s Rigidbody2D and configurable slopes</li>
+                                        <li>Endless uphill push mechanic simulating "Sisyphean" struggle via friction and drag tuning</li>
+                                        <li>Minimalist environment built with tilemaps and scrolling parallax backgrounds</li>
+                                        <li>Procedural difficulty through increasing incline and randomized rock weight</li>
+                                    </ul>
+                                `,
+                                "rpsls": `
+                                    <ul>
+                                        <li>Implemented Rock-Paper-Scissors-Lizard-Spock logic using extensible rule sets</li>
+                                        <li>UI built with Unity UI Toolkit for scalable and themeable components</li>
+                                        <li>AI opponent uses weighted randomness and past-pattern tracking</li>
+                                        <li>State machine driven interface for fast user feedback and result transitions</li>
+                                    </ul>
+                                `,
+                                "rhythm_tiles": `
+                                    <ul>
+                                        <li>Grid-based rhythm puzzle with timing-sensitive inputs mapped to beat events</li>
+                                        <li>Used ScriptableObjects to define tile types, beat patterns, and visual behavior</li>
+                                        <li>Visual metronome synced with BPM using Unity’s audio analysis tools</li>
+                                        <li>Supports dynamic level generation based on imported music data</li>
+                                    </ul>
+                                `,
+                                "bass_rhythm": `
+                                    <ul>
+                                        <li>Core gameplay loop built around BPM-based audio event triggers</li>
+                                        <li>Custom timing input system for real-time beat synchronization</li>
+                                        <li>Level generation based on beat data parsed from audio waveform</li>
+                                        <li>Used AudioSource.GetSpectrumData for real-time bass pulse visualization</li>
+                                    </ul>
+                                `,
+                                "Killer-Wave": `
+                                    <ul>
+                                        <li>Procedural wave terrain generation using Perlin noise curves in 2D space</li>
+                                        <li>Implemented tight jump control using variable gravity and physics damping</li>
+                                        <li>Single-tap control with increasing wave difficulty curve over time</li>
+                                        <li>Post-processing effects for neon synthwave aesthetic using URP</li>
+                                    </ul>
+                                `,
+                                "battle-tank-game": `
+                                    <ul>
+                                        <li>Top-down twin-stick tank combat with modular tank parts and armor logic</li>
+                                        <li>Projectile physics using raycasting and rigidbody-based shell simulation</li>
+                                        <li>Implemented health, damage, and explosion systems with object pooling for performance</li>
+                                        <li>NavMesh integration for AI-controlled enemy tanks with pathfinding and obstacle avoidance</li>
+                                    </ul>
+                                `,
+                                "2.5D-Fighting-Game": `
+                                    <ul>
+                                        <li>2.5D fighting engine with directional hitboxes and buffered combo inputs</li>
+                                        <li>Used Mecanim Animator layers and blend trees for responsive combat transitions</li>
+                                        <li>Implemented super meter system with charge buildup and cinematic camera triggers</li>
+                                        <li>Frame-based hit detection and reactive visual/audio feedback systems</li>
+                                    </ul>
+                                `,
+                                "Doodle-Jump-Clone": `
+                                    <ul>
+                                        <li>Vertical platformer using infinite procedural level generation and jump boosting platforms</li>
+                                        <li>Custom collision system to support one-way platform interactions</li>
+                                        <li>Camera follows player vertically with dynamic bounds and parallax layers</li>
+                                        <li>Built jump logic using Unity physics and tweaked for arcade responsiveness</li>
+                                    </ul>
+                                `,
+                                "LineBall": `
+                                    <ul>
+                                        <li>Precision ball bouncing game with hand-drawn line interactions using mouse/touch input</li>
+                                        <li>Implemented custom bezier curve renderer and collision detection against drawn lines</li>
+                                        <li>Real-time trajectory prediction and feedback using LineRenderer and Raycast</li>
+                                        <li>Progressive difficulty and adaptive physics responses for skill-based gameplay</li>
+                                    </ul>
+                                `,
+                                "3D-game": `
+                                    <ul>
+                                        <li>Third-person exploration prototype using Unity's CharacterController and Cinemachine</li>
+                                        <li>Scene built using modular 3D kits with baked lighting and occlusion culling</li>
+                                        <li>Basic interaction system with raycast-based object detection and prompt feedback</li>
+                                        <li>Shader Graph used for stylized effects like water, outlines, and fog</li>
+                                    </ul>
+                                `,
+                                "2D-platformer-game": `
+                                    <ul>
+                                        <li>Classic side-scrolling platformer with tight controls and coyote-time jump logic</li>
+                                        <li>Built modular level system with Unity tilemaps and custom hazard components</li>
+                                        <li>Checkpoint, coin collection, and enemy patrol AI systems implemented</li>
+                                        <li>Polished animation system with blend transitions using Animator State Machine</li>
                                     </ul>
                                 `
-                                // Add more keys for other games as needed
                             };
 
+
+
                             document.querySelectorAll("a[target='gameplay']").forEach(link => {
-                                link.addEventListener("click", function () {
+                                link.addEventListener("click", function (e) {
                                     let path = link.href.replace(/\/+$/, ''); // remove trailing slash
                                     const folderName = path.split("/").pop(); // extract last segment
 
@@ -371,7 +462,9 @@ I’m constantly experimenting and sharing my work—both playable prototypes an
                                     doc.close();
                                 }
                             });
+                        });
                         </script>
+
 
 
                        <div class="project_info"></div>
@@ -420,10 +513,7 @@ I’m constantly experimenting and sharing my work—both playable prototypes an
 
                 <div class="column lg-5 md-6 stack-on-900 left-block">
                     <p>
-                    Dolorum est et corporis. Unde nobis quo rerum aspernatur cum dolorem 
-                    tempore et. Beatae atque nobis qui nam nulla nihil sunt quis. Earum 
-                    minima cum consectetur ab repudiandae sed esse dolores.
-
+                    Feel free to reach out for collaboration, project inquiries, or just to say hello!
                     <div class="s-footer__buttons">
                         <a href="mailto:kanorwalamurtaza217@gmail.com" class="btn btn--primary u-fullwidth">Say Hello</a>
                         <a href="files/Murtaza Kanorwala - Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--stroke u-fullwidth">Get My CV</a>
