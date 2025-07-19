@@ -38,6 +38,12 @@ app.use((req, res, next) => {
         next();
 });
 
+// debug
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.url}`);
+    next();
+});
+
 // Optional fallback for unmatched routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
